@@ -1,10 +1,7 @@
 import os.path
 import random
-
 import telebot
-import numpy as np
 import tarotDeck
-import array as ar
 
 bot = telebot.TeleBot('6721762272:AAEp01-ATOQrrIHvAREPS9NLq5WDfRPRE8k')
 from telebot import types
@@ -18,17 +15,12 @@ def start(message):
     markup.add(btn1)
     bot.send_message(message.from_user.id, '<b>Узнай свою судьбу</b>', reply_markup=markup, parse_mode='html')
     global deck
-    #deck = np.random.permutation(78)
-
     deck = random.sample(range(0,78),78)
-    #print(deck)
-    #deck.remove(0)
-    #print(deck)
+
 
 @bot.message_handler(content_types=['text'])
 def get_text_message(message):
     if message.text == 'ВЫТЯНУТЬ КАРТУ':
-        #randomCardIndex = np.random.choice(deck, 1)
         randomCardIndex = deck[random.randint(0, len(deck)-1)]
         print(randomCardIndex)
         card = tarotDeck.taroDeck.returnCard(deck, randomCardIndex)
