@@ -3,7 +3,7 @@ from array import *
 
 
 class taroDeck:
-    def returnCard(deck):
+    def returnCard(deck, randomCardIndex):
         Arcanes = [
             'Шут - начало пути, отсутствие опыта, неразличимость добра и зла. Начало новых дел. Необдуманные действия',
             'Маг - совершенный человек. Воля, мастерство, ловкость, риск. Но также небрежность к самому себе',
@@ -140,15 +140,10 @@ class taroDeck:
             '(ПЕРЕВЕРНУТОЕ) Письмо, Официальное послание, Послание.',
             'Туз Пентаклей\n (ПРЯМОЕ) Полное удовлетворение, Блаженство, Процветание, Триумф;\n'
             '(ПЕРЕВЕРНУТОЕ) Кошелек с золотом, Деньги, Обретение, Помощь, Выгода, Богатство']
-        randomCardIndex = np.random.choice(deck, 1)
-        randomCardValue = deck[randomCardIndex]
-        print(len(Arcanes))
-        print(deck)
-        print(randomCardIndex)
-        print(randomCardValue)
-        card = Arcanes[int(randomCardValue)]
+
+        card = Arcanes[int(randomCardIndex)]
         answer = card
-        if int(randomCardValue) > 21:
+        if int(randomCardIndex) > 21:
             positions = ['(ПРЯМОЕ)', '(ПЕРЕВЕРНУТОЕ)']
             position = np.random.choice(positions, 1)
             answer = str(position) + " " + str(card)
