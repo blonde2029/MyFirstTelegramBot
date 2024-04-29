@@ -1,0 +1,11 @@
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: 3.11
+build:
+  requirementsPath: venv/bin/requirements.txt
+run:
+  scriptName: venv/bin/bot.py
+  persistenceMount: /data
+  containerPort: 80
