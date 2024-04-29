@@ -1,6 +1,4 @@
 import numpy as np
-from array import *
-
 
 class taroDeck:
     def returnCard(deck, randomCardIndex):
